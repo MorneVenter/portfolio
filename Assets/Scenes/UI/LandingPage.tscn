@@ -1,0 +1,1826 @@
+[gd_scene load_steps=36 format=2]
+
+[ext_resource path="res://ExternalAssets/Fonts/Raw/Quicksand/static/Quicksand-Light.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://ExternalAssets/Fonts/Raw/Quicksand/static/Quicksand-Bold.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://Assets/Sprites/white.png" type="Texture" id=3]
+[ext_resource path="res://ExternalAssets/Fonts/Raw/Quicksand/static/Quicksand-Regular.ttf" type="DynamicFontData" id=4]
+[ext_resource path="res://Assets/Scenes/UI/LandingPage.gd" type="Script" id=5]
+[ext_resource path="res://Assets/Sprites/light-mode-toggle-icon.png" type="Texture" id=6]
+[ext_resource path="res://Assets/Sprites/dark-mode-toggle-icon.png" type="Texture" id=7]
+[ext_resource path="res://Assets/Scenes/UI/DesktopCard.gd" type="Script" id=8]
+[ext_resource path="res://Assets/Sprites/digiton.jpeg" type="Texture" id=9]
+[ext_resource path="res://Assets/Sprites/maximize.png" type="Texture" id=10]
+[ext_resource path="res://Assets/Sprites/ember.jpeg" type="Texture" id=11]
+[ext_resource path="res://Assets/Sprites/twitter.png" type="Texture" id=12]
+[ext_resource path="res://Assets/Sprites/linkedin.png" type="Texture" id=13]
+[ext_resource path="res://Assets/Sprites/copy.png" type="Texture" id=14]
+[ext_resource path="res://Assets/Sprites/github.png" type="Texture" id=15]
+
+[sub_resource type="DynamicFont" id=1]
+size = 64
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 80
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 32
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=6]
+size = 38
+font_data = ExtResource( 4 )
+
+[sub_resource type="StyleBoxFlat" id=7]
+bg_color = Color( 1, 1, 1, 0.25098 )
+
+[sub_resource type="StyleBoxFlat" id=9]
+bg_color = Color( 1, 1, 1, 0.368627 )
+
+[sub_resource type="StyleBoxFlat" id=8]
+bg_color = Color( 1, 1, 1, 0 )
+
+[sub_resource type="Theme" id=11]
+CheckButton/icons/off = ExtResource( 7 )
+CheckButton/icons/on = ExtResource( 6 )
+
+[sub_resource type="DynamicFont" id=10]
+size = 25
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=12]
+size = 32
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=13]
+size = 32
+font_data = ExtResource( 1 )
+
+[sub_resource type="StyleBoxFlat" id=19]
+bg_color = Color( 0.94902, 0.388235, 0.388235, 1 )
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+
+[sub_resource type="DynamicFont" id=20]
+size = 22
+font_data = ExtResource( 1 )
+
+[sub_resource type="Animation" id=21]
+resource_name = "copied"
+length = 1.9
+step = 0.01
+tracks/0/type = "value"
+tracks/0/path = NodePath("Text/CopiedText:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1.51, 1.61 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ true, true, false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Text/CopiedText:rect_scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.06, 1.55, 1.61 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 1, 1 ), Vector2( 1, 1 ), Vector2( 0, 0 ) ]
+}
+
+[sub_resource type="Animation" id=17]
+resource_name = "show_contact"
+length = 0.16
+step = 0.01
+tracks/0/type = "value"
+tracks/0/path = NodePath("InfoCard:rect_scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.06, 0.16 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 1 ), Vector2( 1.2, 1 ), Vector2( 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("InfoCard:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("SkillsCard:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("ProjectCard:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("ContactCard:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("SkillsCard:rect_scale")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 0.06, 0.16 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 1 ), Vector2( 1.2, 1 ), Vector2( 1, 1 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("ProjectCard:rect_scale")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 0.06, 0.16 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 1 ), Vector2( 1.2, 1 ), Vector2( 1, 1 ) ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("ContactCard:rect_scale")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0, 0.06, 0.16 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 1 ), Vector2( 1.2, 1 ), Vector2( 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=18]
+resource_name = "show_home"
+length = 0.16
+step = 0.01
+tracks/0/type = "value"
+tracks/0/path = NodePath("InfoCard:rect_scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.06, 0.16 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 1 ), Vector2( 1.2, 1 ), Vector2( 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("InfoCard:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("SkillsCard:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("ProjectCard:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("ContactCard:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("SkillsCard:rect_scale")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 0.06, 0.16 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 1 ), Vector2( 1.2, 1 ), Vector2( 1, 1 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("ProjectCard:rect_scale")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 0.06, 0.16 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 1 ), Vector2( 1.2, 1 ), Vector2( 1, 1 ) ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("ContactCard:rect_scale")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0, 0.06, 0.16 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 1 ), Vector2( 1.2, 1 ), Vector2( 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=14]
+resource_name = "show_info"
+length = 0.16
+step = 0.01
+tracks/0/type = "value"
+tracks/0/path = NodePath("InfoCard:rect_scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.06, 0.16 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 1 ), Vector2( 1.2, 1 ), Vector2( 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("InfoCard:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("SkillsCard:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("ProjectCard:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("ContactCard:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+
+[sub_resource type="Animation" id=16]
+resource_name = "show_project"
+length = 0.16
+step = 0.01
+tracks/0/type = "value"
+tracks/0/path = NodePath("InfoCard:rect_scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.06, 0.16 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 1 ), Vector2( 1.2, 1 ), Vector2( 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("InfoCard:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("SkillsCard:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("ProjectCard:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("ContactCard:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("SkillsCard:rect_scale")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 0.06, 0.16 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 1 ), Vector2( 1.2, 1 ), Vector2( 1, 1 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("ProjectCard:rect_scale")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 0.06, 0.16 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 1 ), Vector2( 1.2, 1 ), Vector2( 1, 1 ) ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("ContactCard:rect_scale")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0, 0.06, 0.16 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 1 ), Vector2( 1.2, 1 ), Vector2( 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=15]
+resource_name = "show_skills"
+length = 0.16
+step = 0.01
+tracks/0/type = "value"
+tracks/0/path = NodePath("InfoCard:rect_scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.06, 0.16 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 1 ), Vector2( 1.2, 1 ), Vector2( 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("InfoCard:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("SkillsCard:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("ProjectCard:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("ContactCard:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("SkillsCard:rect_scale")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 0.06, 0.16 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 1 ), Vector2( 1.2, 1 ), Vector2( 1, 1 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("ProjectCard:rect_scale")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 0.06, 0.16 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 1 ), Vector2( 1.2, 1 ), Vector2( 1, 1 ) ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("ContactCard:rect_scale")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0, 0.06, 0.16 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 1 ), Vector2( 1.2, 1 ), Vector2( 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=22]
+resource_name = "copied"
+length = 1.9
+step = 0.01
+tracks/0/type = "value"
+tracks/0/path = NodePath("Text/CopiedText:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1.51, 1.61 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ true, true, false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Text/CopiedText:rect_scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.06, 1.55, 1.61 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 1, 1 ), Vector2( 1, 1 ), Vector2( 0, 0 ) ]
+}
+
+[node name="LandingPage" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 5 )
+
+[node name="Header" type="Control" parent="."]
+margin_left = 93.0
+margin_top = 99.0
+margin_right = 561.0
+margin_bottom = 297.0
+
+[node name="Name" type="RichTextLabel" parent="Header"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_top = -53.0
+margin_right = 806.0
+margin_bottom = 45.0
+custom_fonts/bold_font = SubResource( 1 )
+custom_fonts/normal_font = SubResource( 2 )
+bbcode_enabled = true
+bbcode_text = "Morné Venter"
+text = "Morné Venter"
+scroll_active = false
+
+[node name="Title" type="RichTextLabel" parent="Header"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = 7.0
+margin_top = 47.0
+margin_right = 440.0
+margin_bottom = 132.0
+custom_fonts/bold_font = SubResource( 1 )
+custom_fonts/normal_font = SubResource( 3 )
+bbcode_enabled = true
+bbcode_text = "Software Engineer & Artist"
+text = "Software Engineer & Artist"
+scroll_active = false
+
+[node name="Border" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Border" type="TextureRect" parent="Border"]
+anchor_right = 1.0
+margin_bottom = 30.0
+texture = ExtResource( 3 )
+expand = true
+stretch_mode = 1
+
+[node name="Border2" type="TextureRect" parent="Border"]
+anchor_bottom = 1.0
+margin_right = 30.0
+texture = ExtResource( 3 )
+expand = true
+stretch_mode = 1
+
+[node name="Border3" type="TextureRect" parent="Border"]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -30.0
+grow_horizontal = 0
+grow_vertical = 0
+rect_pivot_offset = Vector2( 0, 60 )
+texture = ExtResource( 3 )
+expand = true
+stretch_mode = 1
+
+[node name="Border4" type="TextureRect" parent="Border"]
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -30.0
+texture = ExtResource( 3 )
+expand = true
+stretch_mode = 1
+
+[node name="MenuContainer" type="GridContainer" parent="."]
+margin_left = 101.0
+margin_top = 323.0
+margin_right = 601.0
+margin_bottom = 651.0
+custom_constants/vseparation = 30
+custom_constants/hseparation = 140
+
+[node name="HomeButton" type="Button" parent="MenuContainer"]
+margin_right = 143.0
+margin_bottom = 48.0
+focus_mode = 0
+mouse_default_cursor_shape = 2
+custom_fonts/font = SubResource( 6 )
+custom_styles/hover = SubResource( 7 )
+custom_styles/pressed = SubResource( 9 )
+custom_styles/normal = SubResource( 8 )
+shortcut_in_tooltip = false
+enabled_focus_mode = 0
+text = "home"
+align = 0
+
+[node name="InfoButton" type="Button" parent="MenuContainer"]
+margin_top = 78.0
+margin_right = 143.0
+margin_bottom = 126.0
+focus_mode = 0
+mouse_default_cursor_shape = 2
+custom_fonts/font = SubResource( 6 )
+custom_styles/hover = SubResource( 7 )
+custom_styles/pressed = SubResource( 9 )
+custom_styles/normal = SubResource( 8 )
+shortcut_in_tooltip = false
+enabled_focus_mode = 0
+text = "info"
+align = 0
+
+[node name="SkillsButton" type="Button" parent="MenuContainer"]
+margin_top = 156.0
+margin_right = 143.0
+margin_bottom = 204.0
+focus_mode = 0
+mouse_default_cursor_shape = 2
+custom_fonts/font = SubResource( 6 )
+custom_styles/hover = SubResource( 7 )
+custom_styles/pressed = SubResource( 9 )
+custom_styles/normal = SubResource( 8 )
+shortcut_in_tooltip = false
+enabled_focus_mode = 0
+text = "skills"
+align = 0
+
+[node name="ProjectButton" type="Button" parent="MenuContainer"]
+margin_top = 234.0
+margin_right = 143.0
+margin_bottom = 282.0
+focus_mode = 0
+mouse_default_cursor_shape = 2
+custom_fonts/font = SubResource( 6 )
+custom_styles/hover = SubResource( 7 )
+custom_styles/pressed = SubResource( 9 )
+custom_styles/normal = SubResource( 8 )
+shortcut_in_tooltip = false
+enabled_focus_mode = 0
+text = "projects"
+align = 0
+
+[node name="ContactButton" type="Button" parent="MenuContainer"]
+margin_top = 312.0
+margin_right = 143.0
+margin_bottom = 360.0
+focus_mode = 0
+mouse_default_cursor_shape = 2
+custom_fonts/font = SubResource( 6 )
+custom_styles/hover = SubResource( 7 )
+custom_styles/pressed = SubResource( 9 )
+custom_styles/normal = SubResource( 8 )
+shortcut_in_tooltip = false
+enabled_focus_mode = 0
+text = "contact"
+align = 0
+
+[node name="DarkModeCheck" type="CheckButton" parent="."]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_left = 39.0
+margin_top = -107.0
+margin_right = 563.0
+margin_bottom = 165.0
+rect_scale = Vector2( 0.25, 0.25 )
+focus_mode = 0
+mouse_default_cursor_shape = 2
+theme = SubResource( 11 )
+custom_fonts/font = SubResource( 10 )
+pressed = true
+enabled_focus_mode = 0
+flat = true
+align = 1
+
+[node name="InfoCard" type="Control" parent="."]
+visible = false
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -1189.0
+margin_top = -191.0
+margin_right = -455.0
+margin_bottom = 239.0
+script = ExtResource( 8 )
+
+[node name="Background" type="TextureRect" parent="InfoCard"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 3 )
+expand = true
+
+[node name="Text" type="RichTextLabel" parent="InfoCard"]
+modulate = Color( 0, 0, 0, 1 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -323.5
+margin_top = -167.5
+margin_right = 323.5
+margin_bottom = 167.5
+custom_fonts/bold_font = SubResource( 12 )
+custom_fonts/normal_font = SubResource( 13 )
+bbcode_enabled = true
+bbcode_text = "my name is [b]Morné[/b] and I am a fast-learning, motivated and curious person with a passion for code. i enjoy challenging situations that require me to learn something new.
+
+i love expressing myself through game design, art and Spotify benders."
+text = "my name is Morné and I am a fast-learning, motivated and curious person with a passion for code. i enjoy challenging situations that require me to learn something new.
+
+i love expressing myself through game design, art and Spotify benders."
+scroll_active = false
+
+[node name="SkillsCard" type="Control" parent="."]
+visible = false
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -1189.0
+margin_top = -123.0
+margin_right = -455.0
+margin_bottom = 307.0
+rect_min_size = Vector2( 734, 430 )
+script = ExtResource( 8 )
+
+[node name="Background" type="TextureRect" parent="SkillsCard"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_bottom = -128.0
+texture = ExtResource( 3 )
+expand = true
+
+[node name="Text" type="RichTextLabel" parent="SkillsCard"]
+modulate = Color( 0, 0, 0, 1 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -323.5
+margin_top = -167.5
+margin_right = 323.5
+margin_bottom = 167.5
+custom_fonts/bold_font = SubResource( 12 )
+custom_fonts/normal_font = SubResource( 13 )
+bbcode_enabled = true
+scroll_active = false
+
+[node name="Control" type="Control" parent="SkillsCard"]
+margin_top = 29.0
+margin_bottom = 29.0
+
+[node name="Row1" type="HBoxContainer" parent="SkillsCard/Control"]
+margin_left = 50.0
+margin_top = 36.0
+margin_right = 676.0
+margin_bottom = 81.0
+
+[node name="Label" type="RichTextLabel" parent="SkillsCard/Control/Row1"]
+margin_right = 140.0
+margin_bottom = 45.0
+rect_min_size = Vector2( 140, 45 )
+custom_fonts/bold_font = SubResource( 12 )
+custom_fonts/normal_font = SubResource( 13 )
+custom_styles/normal = SubResource( 19 )
+bbcode_enabled = true
+bbcode_text = "[center]React.js[/center]"
+text = "React.js"
+scroll_active = false
+
+[node name="Label4" type="RichTextLabel" parent="SkillsCard/Control/Row1"]
+margin_left = 144.0
+margin_right = 324.0
+margin_bottom = 45.0
+rect_min_size = Vector2( 180, 45 )
+custom_fonts/bold_font = SubResource( 12 )
+custom_fonts/normal_font = SubResource( 13 )
+custom_styles/normal = SubResource( 19 )
+bbcode_enabled = true
+bbcode_text = "[center]JavaScript[/center]"
+text = "JavaScript"
+scroll_active = false
+
+[node name="Label2" type="RichTextLabel" parent="SkillsCard/Control/Row1"]
+margin_left = 328.0
+margin_right = 428.0
+margin_bottom = 45.0
+rect_min_size = Vector2( 100, 45 )
+custom_fonts/bold_font = SubResource( 12 )
+custom_fonts/normal_font = SubResource( 13 )
+custom_styles/normal = SubResource( 19 )
+bbcode_enabled = true
+bbcode_text = "[center].NET[/center]"
+text = ".NET"
+scroll_active = false
+
+[node name="Label3" type="RichTextLabel" parent="SkillsCard/Control/Row1"]
+margin_left = 432.0
+margin_right = 512.0
+margin_bottom = 45.0
+rect_min_size = Vector2( 80, 45 )
+custom_fonts/bold_font = SubResource( 12 )
+custom_fonts/normal_font = SubResource( 13 )
+custom_styles/normal = SubResource( 19 )
+bbcode_enabled = true
+bbcode_text = "[center]C#[/center]"
+text = "C#"
+scroll_active = false
+
+[node name="Label5" type="RichTextLabel" parent="SkillsCard/Control/Row1"]
+margin_left = 516.0
+margin_right = 626.0
+margin_bottom = 45.0
+rect_min_size = Vector2( 110, 45 )
+custom_fonts/bold_font = SubResource( 12 )
+custom_fonts/normal_font = SubResource( 13 )
+custom_styles/normal = SubResource( 19 )
+bbcode_enabled = true
+bbcode_text = "[center]Godot[/center]"
+text = "Godot"
+scroll_active = false
+
+[node name="Row2" type="HBoxContainer" parent="SkillsCard/Control"]
+margin_left = 50.0
+margin_top = 93.0
+margin_right = 676.0
+margin_bottom = 138.0
+
+[node name="Label6" type="RichTextLabel" parent="SkillsCard/Control/Row2"]
+margin_right = 150.0
+margin_bottom = 45.0
+rect_min_size = Vector2( 150, 45 )
+custom_fonts/bold_font = SubResource( 12 )
+custom_fonts/normal_font = SubResource( 13 )
+custom_styles/normal = SubResource( 19 )
+bbcode_enabled = true
+bbcode_text = "[center]Unity 3D[/center]"
+text = "Unity 3D"
+scroll_active = false
+
+[node name="Label7" type="RichTextLabel" parent="SkillsCard/Control/Row2"]
+margin_left = 154.0
+margin_right = 244.0
+margin_bottom = 45.0
+rect_min_size = Vector2( 90, 45 )
+custom_fonts/bold_font = SubResource( 12 )
+custom_fonts/normal_font = SubResource( 13 )
+custom_styles/normal = SubResource( 19 )
+bbcode_enabled = true
+bbcode_text = "[center]SQL[/center]"
+text = "SQL"
+scroll_active = false
+
+[node name="Label8" type="RichTextLabel" parent="SkillsCard/Control/Row2"]
+margin_left = 248.0
+margin_right = 368.0
+margin_bottom = 45.0
+rect_min_size = Vector2( 120, 45 )
+custom_fonts/bold_font = SubResource( 12 )
+custom_fonts/normal_font = SubResource( 13 )
+custom_styles/normal = SubResource( 19 )
+bbcode_enabled = true
+bbcode_text = "[center]Python[/center]"
+text = "Python"
+scroll_active = false
+
+[node name="Label9" type="RichTextLabel" parent="SkillsCard/Control/Row2"]
+margin_left = 372.0
+margin_right = 472.0
+margin_bottom = 45.0
+rect_min_size = Vector2( 100, 45 )
+custom_fonts/bold_font = SubResource( 12 )
+custom_fonts/normal_font = SubResource( 13 )
+custom_styles/normal = SubResource( 19 )
+bbcode_enabled = true
+bbcode_text = "[center]Math[/center]"
+text = "Math"
+scroll_active = false
+
+[node name="Label11" type="RichTextLabel" parent="SkillsCard/Control/Row2"]
+margin_left = 476.0
+margin_right = 576.0
+margin_bottom = 45.0
+rect_min_size = Vector2( 100, 45 )
+custom_fonts/bold_font = SubResource( 12 )
+custom_fonts/normal_font = SubResource( 13 )
+custom_styles/normal = SubResource( 19 )
+bbcode_enabled = true
+bbcode_text = "[center]Java[/center]"
+text = "Java"
+scroll_active = false
+
+[node name="Row3" type="HBoxContainer" parent="SkillsCard/Control"]
+margin_left = 50.0
+margin_top = 153.0
+margin_right = 676.0
+margin_bottom = 198.0
+
+[node name="Label12" type="RichTextLabel" parent="SkillsCard/Control/Row3"]
+margin_right = 200.0
+margin_bottom = 45.0
+rect_min_size = Vector2( 200, 45 )
+custom_fonts/bold_font = SubResource( 12 )
+custom_fonts/normal_font = SubResource( 13 )
+custom_styles/normal = SubResource( 19 )
+bbcode_enabled = true
+bbcode_text = "[center]Spring Boot[/center]"
+text = "Spring Boot"
+scroll_active = false
+
+[node name="Label10" type="RichTextLabel" parent="SkillsCard/Control/Row3"]
+margin_left = 204.0
+margin_right = 504.0
+margin_bottom = 45.0
+rect_min_size = Vector2( 300, 45 )
+custom_fonts/bold_font = SubResource( 12 )
+custom_fonts/normal_font = SubResource( 13 )
+custom_styles/normal = SubResource( 19 )
+bbcode_enabled = true
+bbcode_text = "[center]Image Processing[/center]"
+text = "Image Processing"
+scroll_active = false
+
+[node name="ProjectCard" type="Control" parent="."]
+visible = false
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -1189.0
+margin_top = -246.0
+margin_right = -455.0
+margin_bottom = 184.0
+script = ExtResource( 8 )
+
+[node name="Text" type="RichTextLabel" parent="ProjectCard"]
+modulate = Color( 0, 0, 0, 1 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -323.5
+margin_top = -167.5
+margin_right = 323.5
+margin_bottom = 167.5
+custom_fonts/bold_font = SubResource( 12 )
+custom_fonts/normal_font = SubResource( 13 )
+bbcode_enabled = true
+bbcode_text = "
+"
+text = "
+"
+scroll_active = false
+
+[node name="Background" type="Control" parent="ProjectCard"]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="BackgroundDigiton" type="TextureRect" parent="ProjectCard"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = -234.0
+margin_bottom = -180.0
+texture = ExtResource( 3 )
+expand = true
+
+[node name="Digiton" type="TextureRect" parent="ProjectCard/BackgroundDigiton"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -230.0
+margin_top = -107.5
+margin_right = 230.0
+margin_bottom = 107.5
+texture = ExtResource( 9 )
+
+[node name="icon" type="TextureRect" parent="ProjectCard/BackgroundDigiton/Digiton"]
+margin_left = 405.0
+margin_top = 10.0
+margin_right = 448.0
+margin_bottom = 53.0
+texture = ExtResource( 10 )
+expand = true
+stretch_mode = 1
+
+[node name="BackgroundEmber" type="TextureRect" parent="ProjectCard"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 286.0
+margin_right = -234.0
+margin_bottom = 106.0
+texture = ExtResource( 3 )
+expand = true
+
+[node name="Ember" type="TextureRect" parent="ProjectCard/BackgroundEmber"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -230.0
+margin_top = -107.5
+margin_right = 230.0
+margin_bottom = 107.5
+texture = ExtResource( 11 )
+
+[node name="icon" type="TextureRect" parent="ProjectCard/BackgroundEmber/Ember"]
+margin_left = 405.0
+margin_top = 10.0
+margin_right = 448.0
+margin_bottom = 53.0
+texture = ExtResource( 10 )
+expand = true
+stretch_mode = 1
+
+[node name="DigitonButton" type="Button" parent="ProjectCard"]
+margin_right = 503.0
+margin_bottom = 251.0
+focus_mode = 0
+mouse_default_cursor_shape = 2
+enabled_focus_mode = 0
+flat = true
+
+[node name="EmberButton" type="Button" parent="ProjectCard"]
+margin_top = 283.0
+margin_right = 503.0
+margin_bottom = 534.0
+focus_mode = 0
+mouse_default_cursor_shape = 2
+enabled_focus_mode = 0
+flat = true
+
+[node name="ContactCard" type="Control" parent="."]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -1189.0
+margin_top = -191.0
+margin_right = -455.0
+margin_bottom = 239.0
+script = ExtResource( 8 )
+
+[node name="Background" type="TextureRect" parent="ContactCard"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 3 )
+expand = true
+
+[node name="Text" type="RichTextLabel" parent="ContactCard"]
+modulate = Color( 0, 0, 0, 1 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -323.5
+margin_top = -167.5
+margin_right = 323.5
+margin_bottom = 167.5
+custom_fonts/bold_font = SubResource( 12 )
+custom_fonts/normal_font = SubResource( 13 )
+bbcode_enabled = true
+bbcode_text = "you can reach me via email, Twitter or LinkedIn.
+
+[b]morneventer.mv@gmail.com[/b]"
+text = "you can reach me via email, Twitter or LinkedIn.
+
+morneventer.mv@gmail.com"
+scroll_active = false
+
+[node name="CopiedText" type="RichTextLabel" parent="ContactCard/Text"]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 214.0
+margin_top = -40.0
+margin_right = 292.0
+margin_bottom = -8.0
+rect_scale = Vector2( 1e-05, 1e-05 )
+rect_pivot_offset = Vector2( 40, 17 )
+custom_fonts/normal_font = SubResource( 20 )
+bbcode_enabled = true
+bbcode_text = "copied"
+text = "copied"
+scroll_active = false
+
+[node name="Twitter" type="TextureButton" parent="ContactCard"]
+margin_left = 143.0
+margin_top = 295.0
+margin_right = 223.0
+margin_bottom = 375.0
+focus_mode = 0
+mouse_default_cursor_shape = 2
+shortcut_in_tooltip = false
+enabled_focus_mode = 0
+texture_normal = ExtResource( 12 )
+expand = true
+
+[node name="Linkedin" type="TextureButton" parent="ContactCard"]
+margin_left = 310.0
+margin_top = 295.0
+margin_right = 390.0
+margin_bottom = 375.0
+focus_mode = 0
+mouse_default_cursor_shape = 2
+shortcut_in_tooltip = false
+enabled_focus_mode = 0
+texture_normal = ExtResource( 13 )
+expand = true
+
+[node name="Github" type="TextureButton" parent="ContactCard"]
+margin_left = 496.0
+margin_top = 295.0
+margin_right = 576.0
+margin_bottom = 375.0
+focus_mode = 0
+mouse_default_cursor_shape = 2
+shortcut_in_tooltip = false
+enabled_focus_mode = 0
+texture_normal = ExtResource( 15 )
+expand = true
+
+[node name="Copy" type="TextureButton" parent="ContactCard"]
+modulate = Color( 0.94902, 0.388235, 0.388235, 1 )
+margin_left = 514.0
+margin_top = 173.0
+margin_right = 546.0
+margin_bottom = 205.0
+focus_mode = 0
+mouse_default_cursor_shape = 2
+shortcut_in_tooltip = false
+enabled_focus_mode = 0
+texture_normal = ExtResource( 14 )
+expand = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ContactCard"]
+anims/copied = SubResource( 21 )
+
+[node name="EmailButton" type="Button" parent="ContactCard"]
+margin_left = 34.0
+margin_top = 166.0
+margin_right = 504.0
+margin_bottom = 222.0
+focus_mode = 0
+mouse_default_cursor_shape = 2
+enabled_focus_mode = 0
+flat = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/show_contact = SubResource( 17 )
+anims/show_home = SubResource( 18 )
+anims/show_info = SubResource( 14 )
+anims/show_project = SubResource( 16 )
+anims/show_skills = SubResource( 15 )
+
+[node name="Mobile" type="Control" parent="."]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 30.0
+margin_top = -619.0
+margin_right = 30.0
+margin_bottom = -619.0
+
+[node name="InfoCard" type="Control" parent="Mobile"]
+visible = false
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -29.0
+margin_right = -29.0
+margin_bottom = 493.0
+rect_min_size = Vector2( 550, 493 )
+mouse_filter = 1
+script = ExtResource( 8 )
+
+[node name="Background" type="TextureRect" parent="Mobile/InfoCard"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_min_size = Vector2( 550, 493 )
+texture = ExtResource( 3 )
+expand = true
+
+[node name="Text" type="RichTextLabel" parent="Mobile/InfoCard"]
+modulate = Color( 0, 0, 0, 1 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -249.0
+margin_top = -188.0
+margin_right = 246.0
+margin_bottom = 245.0
+custom_fonts/bold_font = SubResource( 12 )
+custom_fonts/normal_font = SubResource( 13 )
+bbcode_enabled = true
+bbcode_text = "my name is [b]Morné[/b] and I am a fast-learning, motivated and curious person with a passion for code. i enjoy challenging situations that require me to learn something new.
+
+i love expressing myself through game design, art and Spotify benders."
+text = "my name is Morné and I am a fast-learning, motivated and curious person with a passion for code. i enjoy challenging situations that require me to learn something new.
+
+i love expressing myself through game design, art and Spotify benders."
+scroll_active = false
+
+[node name="SkillsCard" type="Control" parent="Mobile"]
+visible = false
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -28.0
+margin_right = -28.0
+margin_bottom = 430.0
+rect_min_size = Vector2( 550, 430 )
+mouse_filter = 1
+script = ExtResource( 8 )
+
+[node name="Background" type="TextureRect" parent="Mobile/SkillsCard"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_bottom = 1.0
+texture = ExtResource( 3 )
+expand = true
+
+[node name="Text" type="RichTextLabel" parent="Mobile/SkillsCard"]
+modulate = Color( 0, 0, 0, 1 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -323.5
+margin_top = -167.5
+margin_right = 323.5
+margin_bottom = 167.5
+custom_fonts/bold_font = SubResource( 12 )
+custom_fonts/normal_font = SubResource( 13 )
+bbcode_enabled = true
+scroll_active = false
+
+[node name="Control" type="Control" parent="Mobile/SkillsCard"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -303.0
+margin_top = -153.0
+margin_right = -303.0
+margin_bottom = -153.0
+
+[node name="Row1" type="HBoxContainer" parent="Mobile/SkillsCard/Control"]
+margin_left = 50.0
+margin_top = 36.0
+margin_right = 676.0
+margin_bottom = 81.0
+
+[node name="Label" type="RichTextLabel" parent="Mobile/SkillsCard/Control/Row1"]
+margin_right = 140.0
+margin_bottom = 45.0
+rect_min_size = Vector2( 140, 45 )
+custom_fonts/bold_font = SubResource( 12 )
+custom_fonts/normal_font = SubResource( 13 )
+custom_styles/normal = SubResource( 19 )
+bbcode_enabled = true
+bbcode_text = "[center]React.js[/center]"
+text = "React.js"
+scroll_active = false
+
+[node name="Label4" type="RichTextLabel" parent="Mobile/SkillsCard/Control/Row1"]
+margin_left = 144.0
+margin_right = 324.0
+margin_bottom = 45.0
+rect_min_size = Vector2( 180, 45 )
+custom_fonts/bold_font = SubResource( 12 )
+custom_fonts/normal_font = SubResource( 13 )
+custom_styles/normal = SubResource( 19 )
+bbcode_enabled = true
+bbcode_text = "[center]JavaScript[/center]"
+text = "JavaScript"
+scroll_active = false
+
+[node name="Label2" type="RichTextLabel" parent="Mobile/SkillsCard/Control/Row1"]
+margin_left = 328.0
+margin_right = 428.0
+margin_bottom = 45.0
+rect_min_size = Vector2( 100, 45 )
+custom_fonts/bold_font = SubResource( 12 )
+custom_fonts/normal_font = SubResource( 13 )
+custom_styles/normal = SubResource( 19 )
+bbcode_enabled = true
+bbcode_text = "[center].NET[/center]"
+text = ".NET"
+scroll_active = false
+
+[node name="Label3" type="RichTextLabel" parent="Mobile/SkillsCard/Control/Row1"]
+margin_left = 432.0
+margin_right = 512.0
+margin_bottom = 45.0
+rect_min_size = Vector2( 80, 45 )
+custom_fonts/bold_font = SubResource( 12 )
+custom_fonts/normal_font = SubResource( 13 )
+custom_styles/normal = SubResource( 19 )
+bbcode_enabled = true
+bbcode_text = "[center]C#[/center]"
+text = "C#"
+scroll_active = false
+
+[node name="Row2" type="HBoxContainer" parent="Mobile/SkillsCard/Control"]
+margin_left = 50.0
+margin_top = 93.0
+margin_right = 676.0
+margin_bottom = 138.0
+
+[node name="Label5" type="RichTextLabel" parent="Mobile/SkillsCard/Control/Row2"]
+margin_right = 110.0
+margin_bottom = 45.0
+rect_min_size = Vector2( 110, 45 )
+custom_fonts/bold_font = SubResource( 12 )
+custom_fonts/normal_font = SubResource( 13 )
+custom_styles/normal = SubResource( 19 )
+bbcode_enabled = true
+bbcode_text = "[center]Godot[/center]"
+text = "Godot"
+scroll_active = false
+
+[node name="Label6" type="RichTextLabel" parent="Mobile/SkillsCard/Control/Row2"]
+margin_left = 114.0
+margin_right = 264.0
+margin_bottom = 45.0
+rect_min_size = Vector2( 150, 45 )
+custom_fonts/bold_font = SubResource( 12 )
+custom_fonts/normal_font = SubResource( 13 )
+custom_styles/normal = SubResource( 19 )
+bbcode_enabled = true
+bbcode_text = "[center]Unity 3D[/center]"
+text = "Unity 3D"
+scroll_active = false
+
+[node name="Label7" type="RichTextLabel" parent="Mobile/SkillsCard/Control/Row2"]
+margin_left = 268.0
+margin_right = 358.0
+margin_bottom = 45.0
+rect_min_size = Vector2( 90, 45 )
+custom_fonts/bold_font = SubResource( 12 )
+custom_fonts/normal_font = SubResource( 13 )
+custom_styles/normal = SubResource( 19 )
+bbcode_enabled = true
+bbcode_text = "[center]SQL[/center]"
+text = "SQL"
+scroll_active = false
+
+[node name="Label8" type="RichTextLabel" parent="Mobile/SkillsCard/Control/Row2"]
+margin_left = 362.0
+margin_right = 482.0
+margin_bottom = 45.0
+rect_min_size = Vector2( 120, 45 )
+custom_fonts/bold_font = SubResource( 12 )
+custom_fonts/normal_font = SubResource( 13 )
+custom_styles/normal = SubResource( 19 )
+bbcode_enabled = true
+bbcode_text = "[center]Python[/center]"
+text = "Python"
+scroll_active = false
+
+[node name="Row3" type="HBoxContainer" parent="Mobile/SkillsCard/Control"]
+margin_left = 50.0
+margin_top = 153.0
+margin_right = 676.0
+margin_bottom = 198.0
+
+[node name="Label9" type="RichTextLabel" parent="Mobile/SkillsCard/Control/Row3"]
+margin_right = 100.0
+margin_bottom = 45.0
+rect_min_size = Vector2( 100, 45 )
+custom_fonts/bold_font = SubResource( 12 )
+custom_fonts/normal_font = SubResource( 13 )
+custom_styles/normal = SubResource( 19 )
+bbcode_enabled = true
+bbcode_text = "[center]Math[/center]"
+text = "Math"
+scroll_active = false
+
+[node name="Label11" type="RichTextLabel" parent="Mobile/SkillsCard/Control/Row3"]
+margin_left = 104.0
+margin_right = 204.0
+margin_bottom = 45.0
+rect_min_size = Vector2( 100, 45 )
+custom_fonts/bold_font = SubResource( 12 )
+custom_fonts/normal_font = SubResource( 13 )
+custom_styles/normal = SubResource( 19 )
+bbcode_enabled = true
+bbcode_text = "[center]Java[/center]"
+text = "Java"
+scroll_active = false
+
+[node name="Label12" type="RichTextLabel" parent="Mobile/SkillsCard/Control/Row3"]
+margin_left = 208.0
+margin_right = 408.0
+margin_bottom = 45.0
+rect_min_size = Vector2( 200, 45 )
+custom_fonts/bold_font = SubResource( 12 )
+custom_fonts/normal_font = SubResource( 13 )
+custom_styles/normal = SubResource( 19 )
+bbcode_enabled = true
+bbcode_text = "[center]Spring Boot[/center]"
+text = "Spring Boot"
+scroll_active = false
+
+[node name="Row4" type="HBoxContainer" parent="Mobile/SkillsCard/Control"]
+margin_left = 50.0
+margin_top = 214.0
+margin_right = 676.0
+margin_bottom = 259.0
+
+[node name="Label10" type="RichTextLabel" parent="Mobile/SkillsCard/Control/Row4"]
+margin_right = 300.0
+margin_bottom = 45.0
+rect_min_size = Vector2( 300, 45 )
+custom_fonts/bold_font = SubResource( 12 )
+custom_fonts/normal_font = SubResource( 13 )
+custom_styles/normal = SubResource( 19 )
+bbcode_enabled = true
+bbcode_text = "[center]Image Processing[/center]"
+text = "Image Processing"
+scroll_active = false
+
+[node name="ProjectCard" type="Control" parent="Mobile"]
+visible = false
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = 2.0
+margin_top = 60.0
+margin_right = 2.0
+margin_bottom = 60.0
+script = ExtResource( 8 )
+
+[node name="Text" type="RichTextLabel" parent="Mobile/ProjectCard"]
+modulate = Color( 0, 0, 0, 1 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -323.5
+margin_top = -167.5
+margin_right = 323.5
+margin_bottom = 167.5
+custom_fonts/bold_font = SubResource( 12 )
+custom_fonts/normal_font = SubResource( 13 )
+bbcode_enabled = true
+bbcode_text = "
+"
+text = "
+"
+scroll_active = false
+
+[node name="Background" type="Control" parent="Mobile/ProjectCard"]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="BackgroundDigiton" type="TextureRect" parent="Mobile/ProjectCard"]
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = 25.0
+margin_top = -119.0
+margin_right = -96.0
+margin_bottom = 141.0
+texture = ExtResource( 3 )
+expand = true
+
+[node name="Digiton" type="TextureRect" parent="Mobile/ProjectCard/BackgroundDigiton"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -230.0
+margin_top = -107.5
+margin_right = 230.0
+margin_bottom = 107.5
+rect_pivot_offset = Vector2( 222, 117.5 )
+texture = ExtResource( 9 )
+
+[node name="icon" type="TextureRect" parent="Mobile/ProjectCard/BackgroundDigiton/Digiton"]
+margin_left = 405.0
+margin_top = 10.0
+margin_right = 448.0
+margin_bottom = 53.0
+texture = ExtResource( 10 )
+expand = true
+stretch_mode = 1
+
+[node name="DigitonButton" type="Button" parent="Mobile/ProjectCard/BackgroundDigiton"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -251.5
+margin_top = -125.5
+margin_right = 251.5
+margin_bottom = 125.5
+rect_pivot_offset = Vector2( 231, 123.5 )
+focus_mode = 0
+mouse_default_cursor_shape = 2
+enabled_focus_mode = 0
+flat = true
+
+[node name="BackgroundEmber" type="TextureRect" parent="Mobile/ProjectCard"]
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = 25.0
+margin_top = 170.0
+margin_right = -96.0
+margin_bottom = 430.0
+texture = ExtResource( 3 )
+expand = true
+
+[node name="Ember" type="TextureRect" parent="Mobile/ProjectCard/BackgroundEmber"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -230.0
+margin_top = -107.5
+margin_right = 230.0
+margin_bottom = 107.5
+rect_pivot_offset = Vector2( 224, 111.5 )
+texture = ExtResource( 11 )
+
+[node name="icon" type="TextureRect" parent="Mobile/ProjectCard/BackgroundEmber/Ember"]
+margin_left = 405.0
+margin_top = 10.0
+margin_right = 448.0
+margin_bottom = 53.0
+texture = ExtResource( 10 )
+expand = true
+stretch_mode = 1
+
+[node name="EmberButton" type="Button" parent="Mobile/ProjectCard/BackgroundEmber"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -251.5
+margin_top = -125.5
+margin_right = 251.5
+margin_bottom = 125.5
+rect_pivot_offset = Vector2( 238, 127.5 )
+focus_mode = 0
+mouse_default_cursor_shape = 2
+enabled_focus_mode = 0
+flat = true
+
+[node name="ContactCard" type="Control" parent="Mobile"]
+visible = false
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -1.0
+margin_top = -1.0
+margin_right = -60.0
+margin_bottom = 349.0
+script = ExtResource( 8 )
+
+[node name="Background" type="TextureRect" parent="Mobile/ContactCard"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 3 )
+expand = true
+
+[node name="Text" type="RichTextLabel" parent="Mobile/ContactCard"]
+modulate = Color( 0, 0, 0, 1 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -249.0
+margin_top = -156.0
+margin_right = 249.0
+margin_bottom = 83.0
+rect_pivot_offset = Vector2( 244.5, 119 )
+custom_fonts/bold_font = SubResource( 12 )
+custom_fonts/normal_font = SubResource( 13 )
+bbcode_enabled = true
+bbcode_text = "you can reach me via email, Twitter or LinkedIn.
+
+[b]morneventer.mv@gmail.com[/b]"
+text = "you can reach me via email, Twitter or LinkedIn.
+
+morneventer.mv@gmail.com"
+scroll_active = false
+
+[node name="CopiedText" type="RichTextLabel" parent="Mobile/ContactCard/Text"]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -51.0
+margin_top = -19.5
+margin_right = 27.0
+margin_bottom = 12.5
+rect_scale = Vector2( 1e-05, 1e-05 )
+rect_pivot_offset = Vector2( 40, 17 )
+custom_fonts/normal_font = SubResource( 20 )
+bbcode_enabled = true
+bbcode_text = "copied"
+text = "copied"
+scroll_active = false
+
+[node name="Copy" type="TextureButton" parent="Mobile/ContactCard/Text"]
+modulate = Color( 0.94902, 0.388235, 0.388235, 1 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 208.5
+margin_top = 7.5
+margin_right = 240.5
+margin_bottom = 39.5
+focus_mode = 0
+mouse_default_cursor_shape = 2
+shortcut_in_tooltip = false
+enabled_focus_mode = 0
+texture_normal = ExtResource( 14 )
+expand = true
+
+[node name="EmailButton" type="Button" parent="Mobile/ContactCard/Text"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -257.5
+margin_top = -5.5
+margin_right = 212.5
+margin_bottom = 50.5
+focus_mode = 0
+mouse_default_cursor_shape = 2
+enabled_focus_mode = 0
+flat = true
+
+[node name="Twitter" type="TextureButton" parent="Mobile/ContactCard"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -249.5
+margin_top = 68.0
+margin_right = -169.5
+margin_bottom = 148.0
+focus_mode = 0
+mouse_default_cursor_shape = 2
+shortcut_in_tooltip = false
+enabled_focus_mode = 0
+texture_normal = ExtResource( 12 )
+expand = true
+
+[node name="Linkedin" type="TextureButton" parent="Mobile/ContactCard"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -40.0
+margin_top = 68.0
+margin_right = 40.0
+margin_bottom = 148.0
+focus_mode = 0
+mouse_default_cursor_shape = 2
+shortcut_in_tooltip = false
+enabled_focus_mode = 0
+texture_normal = ExtResource( 13 )
+expand = true
+
+[node name="Github" type="TextureButton" parent="Mobile/ContactCard"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 175.5
+margin_top = 70.0
+margin_right = 255.5
+margin_bottom = 150.0
+focus_mode = 0
+mouse_default_cursor_shape = 2
+shortcut_in_tooltip = false
+enabled_focus_mode = 0
+texture_normal = ExtResource( 15 )
+expand = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Mobile/ContactCard"]
+anims/copied = SubResource( 22 )
+
+[connection signal="resized" from="." to="." method="_on_LandingPage_resized"]
+[connection signal="mouse_entered" from="MenuContainer/HomeButton" to="." method="_on_HomeButton_mouse_entered"]
+[connection signal="pressed" from="MenuContainer/HomeButton" to="." method="_on_HomeButton_pressed"]
+[connection signal="mouse_entered" from="MenuContainer/InfoButton" to="." method="_on_InfoButton_mouse_entered"]
+[connection signal="pressed" from="MenuContainer/InfoButton" to="." method="_on_InfoButton_pressed"]
+[connection signal="mouse_entered" from="MenuContainer/SkillsButton" to="." method="_on_SkillsButton_mouse_entered"]
+[connection signal="pressed" from="MenuContainer/SkillsButton" to="." method="_on_SkillsButton_pressed"]
+[connection signal="mouse_entered" from="MenuContainer/ProjectButton" to="." method="_on_ProjectButton_mouse_entered"]
+[connection signal="pressed" from="MenuContainer/ProjectButton" to="." method="_on_ProjectButton_pressed"]
+[connection signal="mouse_entered" from="MenuContainer/ContactButton" to="." method="_on_ContactButton_mouse_entered"]
+[connection signal="pressed" from="MenuContainer/ContactButton" to="." method="_on_ContactButton_pressed"]
+[connection signal="toggled" from="DarkModeCheck" to="." method="_on_CheckButton_toggled"]
+[connection signal="toggled" from="DarkModeCheck" to="InfoCard" method="_on_DarkModeCheck_toggled"]
+[connection signal="toggled" from="DarkModeCheck" to="SkillsCard" method="_on_DarkModeCheck_toggled"]
+[connection signal="toggled" from="DarkModeCheck" to="ProjectCard" method="_on_DarkModeCheck_toggled"]
+[connection signal="toggled" from="DarkModeCheck" to="ContactCard" method="_on_DarkModeCheck_toggled"]
+[connection signal="toggled" from="DarkModeCheck" to="Mobile/InfoCard" method="_on_DarkModeCheck_toggled"]
+[connection signal="toggled" from="DarkModeCheck" to="Mobile/SkillsCard" method="_on_DarkModeCheck_toggled"]
+[connection signal="toggled" from="DarkModeCheck" to="Mobile/ProjectCard" method="_on_DarkModeCheck_toggled"]
+[connection signal="toggled" from="DarkModeCheck" to="Mobile/ContactCard" method="_on_DarkModeCheck_toggled"]
+[connection signal="pressed" from="ProjectCard/DigitonButton" to="." method="_on_DigitonButton_pressed"]
+[connection signal="pressed" from="ProjectCard/EmberButton" to="." method="_on_EmberButton_pressed"]
+[connection signal="pressed" from="ContactCard/Twitter" to="." method="_on_Twitter_pressed"]
+[connection signal="pressed" from="ContactCard/Linkedin" to="." method="_on_Linkedin_pressed"]
+[connection signal="pressed" from="ContactCard/Github" to="." method="_on_Github_pressed"]
+[connection signal="pressed" from="ContactCard/Copy" to="." method="_on_Copy_pressed"]
+[connection signal="pressed" from="ContactCard/EmailButton" to="." method="_on_EmailButton_pressed"]
+[connection signal="pressed" from="Mobile/ProjectCard/BackgroundDigiton/DigitonButton" to="." method="_on_DigitonButton_pressed"]
+[connection signal="pressed" from="Mobile/ProjectCard/BackgroundEmber/EmberButton" to="." method="_on_EmberButton_pressed"]
+[connection signal="pressed" from="Mobile/ContactCard/Text/Copy" to="." method="_on_Copy_pressed"]
+[connection signal="pressed" from="Mobile/ContactCard/Text/EmailButton" to="." method="_on_EmailButton_pressed"]
+[connection signal="pressed" from="Mobile/ContactCard/Twitter" to="." method="_on_Twitter_pressed"]
+[connection signal="pressed" from="Mobile/ContactCard/Linkedin" to="." method="_on_Linkedin_pressed"]
+[connection signal="pressed" from="Mobile/ContactCard/Github" to="." method="_on_Github_pressed"]
