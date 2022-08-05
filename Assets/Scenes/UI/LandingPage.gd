@@ -89,10 +89,12 @@ func _check_mobile():
 func _set_mobile():
 	$AnimationPlayer.current_animation = "show_home"
 	_show_home_mobile()
+	$MenuContainer.columns = 2
 
 func _set_desktop():
 	$AnimationPlayer.current_animation = "show_home"
 	_show_home_mobile()
+	$MenuContainer.columns = 1
 
 func _on_LandingPage_resized() -> void:
 	_check_mobile()

@@ -37,7 +37,7 @@ script_templates_search_path="res://.script_templates"
 
 [editor_plugins]
 
-enabled=PoolStringArray( "res://addons/godot_xterm/plugin.cfg" )
+enabled=PoolStringArray(  )
 
 [physics]
 

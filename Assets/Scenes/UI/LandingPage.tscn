@@ -672,15 +672,16 @@ texture = ExtResource( 3 )
 expand = true
 stretch_mode = 1
 
-[node name="MenuContainer" type="VBoxContainer" parent="."]
+[node name="MenuContainer" type="GridContainer" parent="."]
 margin_left = 101.0
 margin_top = 323.0
-margin_right = 267.0
+margin_right = 601.0
 margin_bottom = 651.0
-custom_constants/separation = 22
+custom_constants/vseparation = 30
+custom_constants/hseparation = 140
 
 [node name="HomeButton" type="Button" parent="MenuContainer"]
-margin_right = 166.0
+margin_right = 143.0
 margin_bottom = 48.0
 focus_mode = 0
 mouse_default_cursor_shape = 2
@@ -694,9 +695,9 @@ text = "home"
 align = 0
 
 [node name="InfoButton" type="Button" parent="MenuContainer"]
-margin_top = 70.0
-margin_right = 166.0
-margin_bottom = 118.0
+margin_top = 78.0
+margin_right = 143.0
+margin_bottom = 126.0
 focus_mode = 0
 mouse_default_cursor_shape = 2
 custom_fonts/font = SubResource( 6 )
@@ -709,9 +710,9 @@ text = "info"
 align = 0
 
 [node name="SkillsButton" type="Button" parent="MenuContainer"]
-margin_top = 140.0
-margin_right = 166.0
-margin_bottom = 188.0
+margin_top = 156.0
+margin_right = 143.0
+margin_bottom = 204.0
 focus_mode = 0
 mouse_default_cursor_shape = 2
 custom_fonts/font = SubResource( 6 )
@@ -724,9 +725,9 @@ text = "skills"
 align = 0
 
 [node name="ProjectButton" type="Button" parent="MenuContainer"]
-margin_top = 210.0
-margin_right = 166.0
-margin_bottom = 258.0
+margin_top = 234.0
+margin_right = 143.0
+margin_bottom = 282.0
 focus_mode = 0
 mouse_default_cursor_shape = 2
 custom_fonts/font = SubResource( 6 )
@@ -739,9 +740,9 @@ text = "projects"
 align = 0
 
 [node name="ContactButton" type="Button" parent="MenuContainer"]
-margin_top = 280.0
-margin_right = 166.0
-margin_bottom = 328.0
+margin_top = 312.0
+margin_right = 143.0
+margin_bottom = 360.0
 focus_mode = 0
 mouse_default_cursor_shape = 2
 custom_fonts/font = SubResource( 6 )
@@ -1255,15 +1256,20 @@ anims/show_skills = SubResource( 15 )
 
 [node name="Mobile" type="Control" parent="."]
 anchor_top = 1.0
+anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 103.0
-margin_top = -655.0
-margin_right = 103.0
-margin_bottom = -655.0
+margin_left = 30.0
+margin_top = -619.0
+margin_right = 30.0
+margin_bottom = -619.0
 
 [node name="InfoCard" type="Control" parent="Mobile"]
 visible = false
-margin_right = 586.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -29.0
+margin_right = -29.0
 margin_bottom = 493.0
 rect_min_size = Vector2( 550, 493 )
 mouse_filter = 1
@@ -1299,7 +1305,11 @@ scroll_active = false
 
 [node name="SkillsCard" type="Control" parent="Mobile"]
 visible = false
-margin_right = 586.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -28.0
+margin_right = -28.0
 margin_bottom = 430.0
 rect_min_size = Vector2( 550, 430 )
 mouse_filter = 1
@@ -1328,8 +1338,14 @@ bbcode_enabled = true
 scroll_active = false
 
 [node name="Control" type="Control" parent="Mobile/SkillsCard"]
-margin_top = 72.0
-margin_bottom = 72.0
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -303.0
+margin_top = -153.0
+margin_right = -303.0
+margin_bottom = -153.0
 
 [node name="Row1" type="HBoxContainer" parent="Mobile/SkillsCard/Control"]
 margin_left = 50.0
@@ -1509,12 +1525,13 @@ scroll_active = false
 
 [node name="ProjectCard" type="Control" parent="Mobile"]
 visible = false
-anchor_left = 1.0
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-margin_right = 734.0
-margin_bottom = 430.0
+margin_left = 2.0
+margin_top = 60.0
+margin_right = 2.0
+margin_bottom = 60.0
 script = ExtResource( 8 )
 
 [node name="Text" type="RichTextLabel" parent="Mobile/ProjectCard"]
@@ -1541,10 +1558,13 @@ margin_right = 40.0
 margin_bottom = 40.0
 
 [node name="BackgroundDigiton" type="TextureRect" parent="Mobile/ProjectCard"]
+anchor_top = 0.5
 anchor_right = 1.0
-anchor_bottom = 1.0
-margin_right = -234.0
-margin_bottom = -180.0
+anchor_bottom = 0.5
+margin_left = 25.0
+margin_top = -119.0
+margin_right = -96.0
+margin_bottom = 141.0
 texture = ExtResource( 3 )
 expand = true
 
@@ -1557,6 +1577,7 @@ margin_left = -230.0
 margin_top = -107.5
 margin_right = 230.0
 margin_bottom = 107.5
+rect_pivot_offset = Vector2( 222, 117.5 )
 texture = ExtResource( 9 )
 
 [node name="icon" type="TextureRect" parent="Mobile/ProjectCard/BackgroundDigiton/Digiton"]
@@ -1568,12 +1589,29 @@ texture = ExtResource( 10 )
 expand = true
 stretch_mode = 1
 
+[node name="DigitonButton" type="Button" parent="Mobile/ProjectCard/BackgroundDigiton"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -251.5
+margin_top = -125.5
+margin_right = 251.5
+margin_bottom = 125.5
+rect_pivot_offset = Vector2( 231, 123.5 )
+focus_mode = 0
+mouse_default_cursor_shape = 2
+enabled_focus_mode = 0
+flat = true
+
 [node name="BackgroundEmber" type="TextureRect" parent="Mobile/ProjectCard"]
+anchor_top = 0.5
 anchor_right = 1.0
-anchor_bottom = 1.0
-margin_top = 264.0
-margin_right = -234.0
-margin_bottom = 84.0
+anchor_bottom = 0.5
+margin_left = 25.0
+margin_top = 170.0
+margin_right = -96.0
+margin_bottom = 430.0
 texture = ExtResource( 3 )
 expand = true
 
@@ -1586,6 +1624,7 @@ margin_left = -230.0
 margin_top = -107.5
 margin_right = 230.0
 margin_bottom = 107.5
+rect_pivot_offset = Vector2( 224, 111.5 )
 texture = ExtResource( 11 )
 
 [node name="icon" type="TextureRect" parent="Mobile/ProjectCard/BackgroundEmber/Ember"]
@@ -1597,18 +1636,16 @@ texture = ExtResource( 10 )
 expand = true
 stretch_mode = 1
 
-[node name="DigitonButton" type="Button" parent="Mobile/ProjectCard"]
-margin_right = 503.0
-margin_bottom = 251.0
-focus_mode = 0
-mouse_default_cursor_shape = 2
-enabled_focus_mode = 0
-flat = true
-
-[node name="EmberButton" type="Button" parent="Mobile/ProjectCard"]
-margin_top = 261.0
-margin_right = 503.0
-margin_bottom = 512.0
+[node name="EmberButton" type="Button" parent="Mobile/ProjectCard/BackgroundEmber"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -251.5
+margin_top = -125.5
+margin_right = 251.5
+margin_bottom = 125.5
+rect_pivot_offset = Vector2( 238, 127.5 )
 focus_mode = 0
 mouse_default_cursor_shape = 2
 enabled_focus_mode = 0
@@ -1616,18 +1653,18 @@ flat = true
 
 [node name="ContactCard" type="Control" parent="Mobile"]
 visible = false
-anchor_left = 1.0
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-margin_right = 734.0
-margin_bottom = 430.0
+margin_left = -1.0
+margin_top = -1.0
+margin_right = -60.0
+margin_bottom = 349.0
 script = ExtResource( 8 )
 
 [node name="Background" type="TextureRect" parent="Mobile/ContactCard"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_right = -150.0
 texture = ExtResource( 3 )
 expand = true
 
@@ -1637,10 +1674,11 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -323.0
-margin_top = -167.0
-margin_right = 175.0
-margin_bottom = 72.0
+margin_left = -249.0
+margin_top = -156.0
+margin_right = 249.0
+margin_bottom = 83.0
+rect_pivot_offset = Vector2( 244.5, 119 )
 custom_fonts/bold_font = SubResource( 12 )
 custom_fonts/normal_font = SubResource( 13 )
 bbcode_enabled = true
@@ -1659,9 +1697,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = -51.0
-margin_top = 49.5
+margin_top = -19.5
 margin_right = 27.0
-margin_bottom = 81.5
+margin_bottom = 12.5
 rect_scale = Vector2( 1e-05, 1e-05 )
 rect_pivot_offset = Vector2( 40, 17 )
 custom_fonts/normal_font = SubResource( 20 )
@@ -1670,11 +1708,46 @@ bbcode_text = "copied"
 text = "copied"
 scroll_active = false
 
+[node name="Copy" type="TextureButton" parent="Mobile/ContactCard/Text"]
+modulate = Color( 0.94902, 0.388235, 0.388235, 1 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 208.5
+margin_top = 7.5
+margin_right = 240.5
+margin_bottom = 39.5
+focus_mode = 0
+mouse_default_cursor_shape = 2
+shortcut_in_tooltip = false
+enabled_focus_mode = 0
+texture_normal = ExtResource( 14 )
+expand = true
+
+[node name="EmailButton" type="Button" parent="Mobile/ContactCard/Text"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -257.5
+margin_top = -5.5
+margin_right = 212.5
+margin_bottom = 50.5
+focus_mode = 0
+mouse_default_cursor_shape = 2
+enabled_focus_mode = 0
+flat = true
+
 [node name="Twitter" type="TextureButton" parent="Mobile/ContactCard"]
-margin_left = 74.0
-margin_top = 295.0
-margin_right = 154.0
-margin_bottom = 375.0
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -249.5
+margin_top = 68.0
+margin_right = -169.5
+margin_bottom = 148.0
 focus_mode = 0
 mouse_default_cursor_shape = 2
 shortcut_in_tooltip = false
@@ -1683,10 +1756,14 @@ texture_normal = ExtResource( 12 )
 expand = true
 
 [node name="Linkedin" type="TextureButton" parent="Mobile/ContactCard"]
-margin_left = 241.0
-margin_top = 295.0
-margin_right = 321.0
-margin_bottom = 375.0
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -40.0
+margin_top = 68.0
+margin_right = 40.0
+margin_bottom = 148.0
 focus_mode = 0
 mouse_default_cursor_shape = 2
 shortcut_in_tooltip = false
@@ -1695,10 +1772,14 @@ texture_normal = ExtResource( 13 )
 expand = true
 
 [node name="Github" type="TextureButton" parent="Mobile/ContactCard"]
-margin_left = 427.0
-margin_top = 295.0
-margin_right = 507.0
-margin_bottom = 375.0
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 175.5
+margin_top = 70.0
+margin_right = 255.5
+margin_bottom = 150.0
 focus_mode = 0
 mouse_default_cursor_shape = 2
 shortcut_in_tooltip = false
@@ -1706,31 +1787,8 @@ enabled_focus_mode = 0
 texture_normal = ExtResource( 15 )
 expand = true
 
-[node name="Copy" type="TextureButton" parent="Mobile/ContactCard"]
-modulate = Color( 0.94902, 0.388235, 0.388235, 1 )
-margin_left = 515.0
-margin_top = 173.0
-margin_right = 547.0
-margin_bottom = 205.0
-focus_mode = 0
-mouse_default_cursor_shape = 2
-shortcut_in_tooltip = false
-enabled_focus_mode = 0
-texture_normal = ExtResource( 14 )
-expand = true
-
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Mobile/ContactCard"]
 anims/copied = SubResource( 22 )
-
-[node name="EmailButton" type="Button" parent="Mobile/ContactCard"]
-margin_left = 35.0
-margin_top = 166.0
-margin_right = 505.0
-margin_bottom = 222.0
-focus_mode = 0
-mouse_default_cursor_shape = 2
-enabled_focus_mode = 0
-flat = true
 
 [connection signal="resized" from="." to="." method="_on_LandingPage_resized"]
 [connection signal="mouse_entered" from="MenuContainer/HomeButton" to="." method="_on_HomeButton_mouse_entered"]
@@ -1759,10 +1817,10 @@ flat = true
 [connection signal="pressed" from="ContactCard/Github" to="." method="_on_Github_pressed"]
 [connection signal="pressed" from="ContactCard/Copy" to="." method="_on_Copy_pressed"]
 [connection signal="pressed" from="ContactCard/EmailButton" to="." method="_on_EmailButton_pressed"]
-[connection signal="pressed" from="Mobile/ProjectCard/DigitonButton" to="." method="_on_DigitonButton_pressed"]
-[connection signal="pressed" from="Mobile/ProjectCard/EmberButton" to="." method="_on_EmberButton_pressed"]
+[connection signal="pressed" from="Mobile/ProjectCard/BackgroundDigiton/DigitonButton" to="." method="_on_DigitonButton_pressed"]
+[connection signal="pressed" from="Mobile/ProjectCard/BackgroundEmber/EmberButton" to="." method="_on_EmberButton_pressed"]
+[connection signal="pressed" from="Mobile/ContactCard/Text/Copy" to="." method="_on_Copy_pressed"]
+[connection signal="pressed" from="Mobile/ContactCard/Text/EmailButton" to="." method="_on_EmailButton_pressed"]
 [connection signal="pressed" from="Mobile/ContactCard/Twitter" to="." method="_on_Twitter_pressed"]
 [connection signal="pressed" from="Mobile/ContactCard/Linkedin" to="." method="_on_Linkedin_pressed"]
 [connection signal="pressed" from="Mobile/ContactCard/Github" to="." method="_on_Github_pressed"]
-[connection signal="pressed" from="Mobile/ContactCard/Copy" to="." method="_on_Copy_pressed"]
-[connection signal="pressed" from="Mobile/ContactCard/EmailButton" to="." method="_on_EmailButton_pressed"]
